@@ -1,0 +1,70 @@
+# Running this
+
+## Just look at it
+
+Open index.html in a browser. Double-click it. That is the whole app — one
+file, fonts and images folded in, no server, no install. It works from a usb
+stick or an email attachment.
+
+## Work on it
+
+  ./push.sh          (or: node scripts/lib/build.js)
+
+Needs node 18 or newer, and nothing else. No npm install — there is nothing to
+install. It rewrites two files:
+
+  index.html   the release, one file
+  debug.html   the same page with one script tag per source file
+
+Edit anything under scripts/ or links/, run push.sh, reload. Use debug.html
+while working: the browser devtools will point at the real file and line.
+
+On Windows, run it in Git Bash or WSL, or just call node directly:
+
+  node scripts/lib/build.js
+
+## The feeds
+
+Every build pulls three things over the network before it writes the files:
+
+  the substack archive at stgod.substack.com       -> PROVINCIALISTICS.DT
+  substack notes                                    -> FRAGMENTS.DT
+  the are.na channel dizzy-website-inspo            -> IMAGES.DT
+
+Each is walked to the end of its pagination, not just the first page. Pictures
+are downloaded into media/ and folded into index.html, so the release stays one
+self-contained file. THE FIRST BUILD ON A MACHINE WITH NETWORK IS WHAT PUTS THE
+REAL CONTENT IN. Until then you are looking at the fallback records written
+into scripts/library.js.
+
+To see what each source returns without touching the build:
+
+  node scripts/lib/fetch.js
+
+Nothing here can break the build. If a feed cannot be reached you get a
+warning, the build finishes, and the site falls back to the records written by
+hand. To skip the network entirely:
+
+  SKIP_FETCH=1 ./push.sh
+
+## Serve it locally
+
+Not required, but if you want it on http:// rather than file://
+
+  python3 -m http.server 8000      then open http://localhost:8000
+  npx serve .                      if you would rather use node
+
+## Deploy it
+
+Push the folder to a git repo and import it in Vercel. It picks up vercel.json
+on its own — no framework, build command already set. Vercel's builder has
+network, so the deploy is also what pulls the are.na images down for real.
+
+Optional environment variables, all of them safe to leave unset:
+
+  ARENA_CHANNEL     overrides the channel slug
+  SUBSTACK_HOST     overrides the publication host
+  DEPLOY_HOOK_URL   from Settings -> Git -> Deploy Hooks, for the daily cron
+  CRON_SECRET       any long random string, locks /api/rebuild
+
+See README.txt for how the thing is put together.

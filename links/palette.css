@@ -1,0 +1,84 @@
+/* Colour, and only colour. Every value here comes from a custom property that
+   Palette writes into :root — nothing in this file names a hex. */
+
+body { background:var(--bg); color:var(--ink) }
+a { color:var(--ink) }
+a:hover { color:var(--accent) }
+input::placeholder, textarea::placeholder { color:var(--ink-2); opacity:.75 }
+:focus-visible { outline:2px solid var(--accent); outline-offset:1px }
+::selection { background-color:var(--accent); color:var(--ink-on) }
+
+#dizzy #chrome { background:var(--bg) }
+#dizzy #status { background:var(--bg); border-bottom:1px solid var(--ink) }
+#dizzy #status .med { color:var(--ink-2) }
+#dizzy #status .inv { color:var(--accent) }
+
+#dizzy #menu { background:var(--bg); border-bottom:1px solid var(--ink) }
+#dizzy #menu .label { color:var(--ink-2) }
+#dizzy #menu button { color:var(--ink) }
+#dizzy #menu button:hover { background:var(--fill); color:var(--ink-on) }
+#dizzy #menu .find input { background:var(--well); color:var(--ink); border-color:var(--ink-2) }
+
+#dizzy #icons button { color:var(--ink) }
+#dizzy #icons button:hover { background:var(--fill); color:var(--ink-on) }
+
+#dizzy .frame { background:var(--bg); border-color:var(--ink) }
+#dizzy .frame.accent { border-color:var(--accent) }
+#dizzy .titlebar { background:var(--fill); color:var(--ink-on) }
+#dizzy .frame.accent > .titlebar { background:var(--accent) }
+#dizzy .titlebar button { color:var(--ink-on) }
+
+#dizzy .label { color:var(--ink-2) }
+#dizzy a.url { color:var(--accent) }
+#dizzy a.url:hover { background:var(--accent); color:var(--ink-on) }
+#dizzy #about .glyph, #dizzy #boot .glyph { color:var(--accent) }
+#dizzy .caret { background:var(--accent) }
+
+#dizzy .rowhead { color:var(--ink-2); border-bottom-color:var(--ink-2) }
+#dizzy .row { color:var(--ink) }
+#dizzy .row:hover { background:var(--fill); color:var(--ink-on) }
+#dizzy .pager { color:var(--accent); border-top-color:var(--ink-2) }
+#dizzy .pager:hover { background:var(--fill); color:var(--ink-on) }
+#dizzy .empty, #dizzy .tail { color:var(--accent) }
+#dizzy .end { color:var(--ink-2); border-top-color:var(--ink-2) }
+
+#dizzy .card { border-color:var(--ink-2) }
+#dizzy .card img, #dizzy img.still { border-color:var(--ink-2); background:var(--well) }
+#dizzy #fragments .card:hover { border-color:var(--accent) }
+#dizzy .gallery img { border-color:var(--ink-2) }
+#dizzy .meta { border-top-color:var(--ink-2) }
+#dizzy .meta .key { color:var(--ink-2) }
+
+#dizzy .actions button, #dizzy .actions a { color:var(--ink); border-color:var(--ink) }
+#dizzy .actions button:hover, #dizzy .actions a:hover { background:var(--fill); color:var(--ink-on) }
+#dizzy .actions a.key { color:var(--accent); border-color:var(--accent) }
+#dizzy .actions a.key:hover { background:var(--accent); color:var(--ink-on) }
+#dizzy .actions button.solid { background:var(--fill); color:var(--ink-on); border-color:var(--fill) }
+#dizzy .actions button.solid:hover { background:var(--accent); border-color:var(--accent) }
+#dizzy .actions a.label.link { color:var(--ink-2) }
+#dizzy .actions a.label.link:hover { background:var(--ink-2); color:var(--ink-on) }
+#dizzy button.key { color:var(--accent); border-color:var(--accent) }
+#dizzy button.key:hover { background:var(--accent); color:var(--ink-on) }
+
+#dizzy .entry input, #dizzy .entry textarea { background:var(--well); color:var(--ink); border-color:var(--ink) }
+#dizzy .entry button { background:var(--fill); color:var(--ink-on); border-color:var(--fill) }
+#dizzy .entry button:hover { background:var(--accent); border-color:var(--accent) }
+#dizzy .error { color:var(--accent) }
+#dizzy .notice { color:var(--ink-2); border-color:var(--ink-2) }
+
+#dizzy #boot { background:var(--bg) }
+#dizzy #boot .gauge { border-color:var(--ink) }
+#dizzy #boot .gauge span { background:var(--accent) }
+
+#dizzy #taskbar { background:var(--bg); border-top-color:var(--ink) }
+#dizzy #taskbar button { color:var(--ink-2); border-color:var(--ink-2) }
+#dizzy #taskbar button:hover { background:var(--ink-2); color:var(--ink-on) }
+#dizzy #taskbar button.inv { color:var(--accent); border-color:var(--accent) }
+#dizzy #taskbar button.inv:hover { background:var(--accent); color:var(--ink-on) }
+#dizzy #taskbar .inv { color:var(--accent) }
+#dizzy #taskbar .rule { background-image:repeating-conic-gradient(var(--ink) 0% 25%, var(--bg) 0% 50%) }
+
+#dizzy #keys { background:var(--bg); border-color:var(--ink-2); color:var(--ink) }
+#dizzy #keys .head { color:var(--ink-2) }
+#dizzy #keys li li:hover { background:var(--fill); color:var(--ink-on) }
+#dizzy #keys i { color:var(--ink-3) }
