@@ -89,7 +89,7 @@ function Client () {
     this.subscribe.start()
     this.contact.start()
     this.about.start()
-    this.subscribe.frame.close()
+    this.panels.forEach(([id]) => { this[id].frame.close() })
     this.taskbar.start()
     this.status.start()
     this.boot.start()
